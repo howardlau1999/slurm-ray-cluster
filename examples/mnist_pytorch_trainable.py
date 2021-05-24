@@ -38,7 +38,6 @@ class TrainMNIST(tune.Trainable):
         momentum=config.get("momentum", 0.9))
 
   def step(self):
-    self.current_ip()
     train(self.model, self.optimizer, self.train_loader, device=self.device)
     acc = test(self.model, self.test_loader, self.device)
     return {"mean_accuracy": acc}
